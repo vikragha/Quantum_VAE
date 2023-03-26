@@ -25,10 +25,13 @@ def get_VAE_config():
     # Training configuration.
     parser.add_argument('--batch_size', type=int, default=32, help='mini-batch size')
     parser.add_argument('--num_epochs', type=int, default=100, help='number of epochs for training D')
+    parser.add_argument('--num_epochs_decay', type=int, default=2500, help='number of iterations for decaying lr')
     parser.add_argument('--g_lr', type=float, default=0.001, help='learning rate for G')
     parser.add_argument('--d_lr', type=float, default=0.001, help='learning rate for D')
     parser.add_argument('--dropout', type=float, default=0., help='dropout rate')
     parser.add_argument('--n_critic', type=int, default=5, help='number of D updates per each G update')
+    parser.add_argument('--beta1', type=float, default=0.5, help='beta1 for Adam optimizer')
+    parser.add_argument('--beta2', type=float, default=0.999, help='beta2 for Adam optimizer')
     parser.add_argument('--resume_epoch', type=int, default=None, help='resume training from this step')
 
     # Test configuration.
@@ -37,6 +40,7 @@ def get_VAE_config():
     # Miscellaneous.
     parser.add_argument('--num_workers', type=int, default=1)
     parser.add_argument('--mode', type=str, default='train', choices=['train', 'test'])
+    parser.add_argument('--use_tensorboard', type=str2bool, default=False)
 
     # Use either of these two datasets.
     parser.add_argument('--mol_data_dir', type=str, default='data/qm9_5k.sparsedataset')
@@ -49,7 +53,7 @@ def get_VAE_config():
     parser.add_argument('--log_step', type=int, default=10)
     parser.add_argument('--sample_step', type=int, default=1000)
     parser.add_argument('--model_save_step', type=int, default=1)
-    parser.add_argument('--lr_update_step', type=int, default=1000)
+    parser.add_argument('--lr_update_step', type=int, default=500)
 
     # For training
     config = parser.parse_args()
