@@ -8,7 +8,7 @@ def get_VAE_config():
     parser = argparse.ArgumentParser()
 
     # Quantum circuit configuration
-    parser.add_argument('--quantum', type=bool, default=True, help='choose to use quantum gan with hybrid generator')
+    parser.add_argument('--quantum', type=bool, default=True, help='choose to use quantum vae')
     parser.add_argument('--patches', type=int, default=1, help='number of quantum circuit patches')
     parser.add_argument('--layer', type=int, default=1, help='number of repeated variational quantum layer')
     parser.add_argument('--qubits', type=int, default=20, help='number of qubits and dimension of domain labels')
