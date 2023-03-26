@@ -14,7 +14,7 @@ from torchvision.utils import save_image
 
 from util_dir.utils_io import random_string
 from utils import *
-from models_vae import Generator, Discriminator, EncoderVAE
+from models import Generator, Discriminator, EncoderVAE
 from data.sparse_molecular_dataset import SparseMolecularDataset
 
 
