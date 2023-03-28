@@ -12,7 +12,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 lg = RDLogger.logger()
 lg.setLevel(RDLogger.CRITICAL)
 
-from solver_vae import Solver
+from solver_qvae import Solver
 from torch.backends import cudnn
 
 
